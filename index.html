@@ -122,11 +122,17 @@ title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" a
 </div>
 
 <script>
-  document.body.addEventListener("click", function() {
-    const iframe = document.querySelector("iframe");
-    iframe.src = "https://www.youtube.com/embed/JfaeB2H7EX4?autoplay=1&mute=0";
-  }, { once: true });
+  let switched = false;
+  window.addEventListener("scroll", function() {
+    if (!switched) {
+      const iframe = document.getElementById("ytplayer");
+      // reload with sound enabled
+      iframe.src = "https://www.youtube.com/embed/JfaeB2H7EX4?autoplay=1&mute=0&controls=0&start=2";
+      switched = true;
+    }
+  });
 </script>
+
 
 <img src="https://i.imgur.com/K4kro4F.gif" alt="Happy New Year">
 
@@ -198,6 +204,7 @@ title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media" a
 
 </body>
 </html>
+
 
 
 
