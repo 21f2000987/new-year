@@ -116,12 +116,27 @@ h2 {
    <p class="dynamic-text" id="dynamicText">❤️Mr. Parashmani wishes you a Happy New Year!❤️</p>
 
 
+<style>
+.music-player {
+  position: relative;
+  width: 560px;
+  height: 315px;
+}
+
+.music-player iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  opacity: 0;               /* start invisible */
+  transition: opacity 1.5s ease-in-out; /* fade effect */
+}
+</style>
+
 <div class="music-player">
-  <iframe id="ytplayer" width="100" height="70" 
-    src="https://www.youtube.com/embed/JfaeB2H7EX4?si=zBZ15xZuuxz6E-07&autoplay=1&mute=1" 
-    title="YouTube video player" 
-    frameborder="0" 
-    allow="autoplay; encrypted-media" 
+  <iframe id="ytplayer" 
+    src="https://www.youtube.com/embed/JfaeB2H7EX4?autoplay=1&mute=1&controls=0&start=2"
+    title="YouTube video player"
+    allow="autoplay; encrypted-media"
     allowfullscreen>
   </iframe>
 </div>
@@ -133,6 +148,8 @@ h2 {
       const iframe = document.getElementById("ytplayer");
       // reload with sound enabled
       iframe.src = "https://www.youtube.com/embed/JfaeB2H7EX4?autoplay=1&mute=0&controls=0&start=2";
+      // fade in
+      iframe.style.opacity = "1";
       switched = true;
     }
   });
@@ -209,6 +226,7 @@ h2 {
 
 </body>
 </html>
+
 
 
 
